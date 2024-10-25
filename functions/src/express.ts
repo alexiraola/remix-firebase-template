@@ -1,7 +1,7 @@
 import compression from "compression";
 import express from "express";
 import morgan from "morgan";
-import { firestore } from "./firebase.js";
+import { firestore } from "./firebase";
 
 const app = express();
 
