@@ -14,7 +14,8 @@ const remixHandler = createRequestHandler({
 
 app.use(viteDevServer.middlewares);
 
-app.use('/remix*', remixHandler);
+app.use('/remix.data', remixHandler);
+app.use('/remix', remixHandler);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () =>
