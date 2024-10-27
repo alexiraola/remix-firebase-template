@@ -10,7 +10,6 @@ const remixHandler = createRequestHandler({
   build: () => import(BUILD),
 });
 
-// Vite fingerprints its assets so we can cache forever.
 app.use(
   "/assets",
   express.static("../build/app/client/assets", { immutable: true, maxAge: "1y" })
