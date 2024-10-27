@@ -1,13 +1,20 @@
-# Welcome to Remix!
+# Remix template with Typescript, Firebase Functions and Vite.
 
-- 📖 [Remix docs](https://remix.run/docs)
+This template is based on the express template provided by Remix.
+It has three template variants for the Firebase Functions building: `tsc`, `esbuild` and `rollup`. You can find them in their corresponding branches.
 
 ## Development
 
-Run the dev server:
+Run the dev server, with HMR for the Remix paths:
 
-```shellscript
+```sh
 npm run dev
+```
+
+To run the server with the Firebase emulator:
+
+```sh
+npm run server
 ```
 
 ## Deployment
@@ -18,23 +25,24 @@ First, build your app for production:
 npm run build
 ```
 
-Then run the app in production mode:
+Then deploy the app to Firebase:
 
 ```sh
-npm start
+npm run deploy
 ```
 
-Now you'll need to pick a host to deploy it to.
+You need to setup a Firebase account and a project before.
 
-### DIY
+## Build variants
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+### tsc (main branch)
 
-Make sure to deploy the output of `npm run build`
+You have to add the `.js` extension to your imports which I don't like.
 
-- `build/server`
-- `build/client`
+### esbuild (esbuild branch)
 
-## Styling
+It is really fast (10ms) but the output contains `let` and `var` keywords. I don't know how to improve the output.
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+### rollup (rollup branch)
+
+It generates the best output but it is slower than `esbuild` (3.7s).
