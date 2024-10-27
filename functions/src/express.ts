@@ -9,11 +9,10 @@ app.use(compression());
 app.use(morgan("tiny"));
 app.use(express.static("build/app/client", { maxAge: "1h" }));
 
-// http://expressjs.com/en/advanced/best-practice-security.html#at-a-minimum-disable-x-powered-by-header
 app.disable("x-powered-by");
 
-app.get("/ping", async (_req, res) => {
-  const data = await firestore.collection('prueba').get();
+app.get("/test", async (_req, res) => {
+  const data = await firestore.collection('test-collection').get();
   res.send(data.docs.map(d => d.data()));
 });
 
